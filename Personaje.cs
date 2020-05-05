@@ -48,10 +48,10 @@ namespace Game1
         /// <summary>
         /// Mueve el personaje, según su velocidad, y rebota en las orillas de la ventana
         /// </summary>
-        public void Update() {
+        public void Update( ) {
             // Muevo el personaje
-            rectangulo.X += (int)velocidad.X;
-            rectangulo.Y += (int)velocidad.Y;
+            rectangulo.X += (int)velocidad.X ;
+            rectangulo.Y += (int)velocidad.Y ;
 
             // Rebote en las orillas
             // En Y
