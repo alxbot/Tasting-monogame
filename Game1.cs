@@ -71,7 +71,7 @@ namespace Game1
             Digger = new Personaje(Content.Load<Texture2D>("pj2"),150,150,10,10,ANCHO, ALTO);
 
             for (int i = 0; i < personajes.Length ; i++) {
-                lista.Add(new Personaje(Content.Load<Texture2D>(personajes[i]), 10 * i, 10 * i, 10, 10, ANCHO, ALTO));
+                lista.Add(new Personaje(Content.Load<Texture2D>(personajes[i]), 10 * i, 10 * i, 2 * i +1 , 2 * i + 1, ANCHO, ALTO));
             }
     
         }
