@@ -10,7 +10,7 @@ namespace Game1
     /// </summary>
     class Personaje
     {
-        #region Propiedades
+        #region Campos
         
         // Creo las propiedades que son necesarias para crear el personaje (bitmap, rectangle, velocidad, activo)
         private Texture2D bitmap;
@@ -82,5 +82,29 @@ namespace Game1
 
         #endregion
 
+        #region Propiedades
+        // Concepto de propiedades se puede asociar con el encapsulamiento
+        // rectcolision - devuelve el rectángulo del personaje
+        // Las propiedades en c# tambíen conocidos como getters y setters son elementos que permiten
+        // proteger la privacidad de los datos
+        public Rectangle rectCollision
+        {
+            get { return rectangulo; }
+        }
+
+        // Activo
+        public bool Activo
+        {
+            // retorna el valor de la propiedad activo si es consultada así Personaje.Activo
+            get { return activo;  }
+            // setea el valor de la propiedad activo si se trabaja así Personaje.Activo = false/true
+            // el elemento value representa el valor que recibe como valor desde afuera
+            set { activo = value; }
+        }
+
+        public Vector2 Velocidad {
+            set { velocidad = value; }
+        }
+        #endregion
     }
 }

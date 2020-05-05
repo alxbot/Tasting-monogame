@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 
 namespace Game1
 {
@@ -20,6 +21,11 @@ namespace Game1
         #region
         // Creo personaje ya desde la clase que creé
         Personaje Digger;
+        // Crearé grupos de personajes a través de una lista
+        List<Personaje> lista = new List<Personaje>();
+        string[] personajes = {"pj1", "pj2", "pj3", "pj4", "pj5", "pj6" };
+        // debo definir cuantos personajes crearé
+        const int CANTIDAD_PERSONAJES = 6;
         #endregion
 
         // SPRITES
@@ -64,6 +70,10 @@ namespace Game1
             // Personaje propio
             Digger = new Personaje(Content.Load<Texture2D>("pj2"),150,150,10,10,ANCHO, ALTO);
 
+            for (int i = 0; i < personajes.Length ; i++) {
+                lista.Add(new Personaje(Content.Load<Texture2D>(personajes[i]), 10 * i, 10 * i, 10, 10, ANCHO, ALTO));
+            }
+    
         }
 
         /// <summary>
@@ -90,6 +100,12 @@ namespace Game1
             // DESDE LA CLASE PERSONAJE
             Digger.Update();
 
+            foreach(Personaje x in lista )
+            {
+
+                x.Update();
+            }
+
             base.Update(gameTime);
         }
 
@@ -108,6 +124,10 @@ namespace Game1
             spriteBatch.Begin();
             // EL personaje de la clase personaje
             Digger.Draw(spriteBatch);
+            foreach (Personaje x in lista)
+            {
+                x.Draw(spriteBatch);
+            }
             spriteBatch.End();
 
             base.Draw(gameTime);
